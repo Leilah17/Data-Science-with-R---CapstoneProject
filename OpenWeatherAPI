@@ -110,18 +110,18 @@ get_weather_forecaset_by_cities <- function(city_names){
         # Loop the json result
         for(result in results) {
             city <- c(city, city_name)
-            weather <- c(weather, result$weather[[1]]$main)
-            visibility <- c(visibility, result$visibility)
-            temp <- c(temp, result$main$temp)
-            temp_min <- c(temp_min, result$main$temp_min)
-            temp_max <- c(temp_max, result$main$temp_max)
-            pressure <- c(pressure, result$main$pressure)
-            humidity <- c(humidity, result$main$humidity)
-            wind_speed <- c(wind_speed, result$wind$speed)
-            wind_deg <- c(wind_deg, result$wind$deg)
-            forecast_datetime <- c(forecast_datetime, result$dt_txt)
+            weather <- c(weather, results[[1]]$weather[[1]]$main)
+            visibility <- c(visibility, results[[1]]$visibility)
+            temp <- c(temp, results[[1]]$main$temp)
+            temp_min <- c(temp_min, results[[1]]$main$temp_min)
+            temp_max <- c(temp_max, results[[1]]$main$temp_max)
+            pressure <- c(pressure, results[[1]]$main$pressure)
+            humidity <- c(humidity, results[[1]]$main$humidity)
+            wind_speed <- c(wind_speed, results[[1]]$wind$speed)
+            wind_deg <- c(wind_deg, results[[1]]$wind$deg)
+            forecast_datetime <- c(forecast_datetime, results[[1]]$dt_txt)
             
-            forecast_timestamp <- result$dt_txt
+            forecast_timestamp <- results[[1]]$dt_txt
             hour <- as.numeric(strftime(forecast_timestamp, format = "%H"))
             month <- as.numeric(strftime(forecast_timestamp, format = "%m"))
             
